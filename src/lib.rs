@@ -323,8 +323,10 @@ mod test {
     use super::CMakeToolchain;
 
     #[test]
-    fn test_cmake_toolchain() {
-        let toolchain = CMakeToolchain::new("aarch64-apple-darwin");
+    fn test_cmake_toolchain_for_host() {
+        let meta = rustc_version::version_meta().unwrap();
+        let host = meta.host;
+        let toolchain = CMakeToolchain::new(&host);
         println!("{:#?}", toolchain);
     }
 }
