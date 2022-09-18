@@ -30,7 +30,8 @@ jobs:
           profile: minimal
           toolchain: stable
           override: true
-      - name: cargo test
+      - uses: Swatinem/rust-cache@v2
+      - name: Run cargo test
         run: cargo test -- --show-output
 
   fmt:
